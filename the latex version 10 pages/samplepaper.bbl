@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{takacs1998comparing}
+B.~Takacs, ``Comparing face images using the modified hausdorff distance,''
+  {\em Pattern Recognition}, vol.~31, no.~12, pp.~1873--1881, 1998.
+
+\bibitem{gao2003efficiently}
+Y.~Gao, ``Efficiently comparing face images using a modified hausdorff
+  distance,'' {\em IEE Proceedings-Vision, Image and Signal Processing},
+  vol.~150, no.~6, pp.~346--350, 2003.
+
+\bibitem{huttenlocher1993comparing}
+D.~P. Huttenlocher, G.~A. Klanderman, and W.~J. Rucklidge, ``Comparing images
+  using the hausdorff distance,'' {\em IEEE Transactions on pattern analysis
+  and machine intelligence}, vol.~15, no.~9, pp.~850--863, 1993.
+
+\bibitem{dubuisson1994modified}
+M.-P. Dubuisson and A.~K. Jain, ``A modified hausdorff distance for object
+  matching,'' in {\em Proceedings of 12th international conference on pattern
+  recognition}, pp.~566--568, IEEE, 1994.
+
+\bibitem{gao2002face}
+Y.~Gao and M.~K. Leung, ``Face recognition using line edge map,'' {\em IEEE
+  Transactions on Pattern Analysis \& Machine Intelligence}, no.~6,
+  pp.~764--779, 2002.
+
+\end{thebibliography}
