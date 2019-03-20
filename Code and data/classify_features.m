@@ -1,10 +1,18 @@
-%classify features depend on its angle feature
-%input is matrix A have 3 row, with:
-% row 1st: row value of features
-% row 2nd: column value of features
-% row 3rd: angle value of features
-% This matrix was used the function 'angle_feature()'
-% variable n is the number of khoang devided by 360 degree.
+% Author: Tinh Bui and Nhan Truong
+% Description: 
+%          This function classifies the dominant points (dps) thank to their
+%          angle features. The size of bins is the same.
+% Input: 
+%       1) A is a matrix which saves the coordinates of dps
+%          The first rows: the value of the row of dps
+%          The second rows: the value of the column of dps
+%          The third rows: the value of angle feature of dps
+%       2) n is the number of bins to separate dps in the image.
+% Output:
+%       1) The output is a struct type contain n parts, each part the same structure
+%          with A.
+% Note:
+%       1) The matrix A is the output of the function 'angle_feature()'
 function output=classify_features(A,n)
 for i=1:1:n
     features=0; low=-pi+(i-1)*2*pi/n; high=-pi+i*2*pi/n;

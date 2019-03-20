@@ -1,4 +1,15 @@
-% illuminate vector
+% Author: Tinh Bui and Nhan Truong
+% Description:
+%          Illuminate the angle feature of each domiant point to image.
+%          From this obsevate, we can have more ideas or how the feature 
+%          look like.
+% Input:
+%       1) image: the human face image
+%       2) datafile: the data dominant points of this image
+% Output:
+%       1) An image
+% Reference:
+%       1) The internet (I'm sorry about having no link)
 function showkey()
 clc
 clear
@@ -7,7 +18,7 @@ imshow(image);
 hold on
 datafile=load('X:\Do_an\code\code_in_report\trained\BNdata1.mat');
 data=datafile.output{1,1}.descriptors;
-A=angle_feature3(data);
+A=angle_feature(data);
 imsize=size(image);
 n=0;
 for i=1:1:size(A,2)

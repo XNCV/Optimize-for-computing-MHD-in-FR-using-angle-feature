@@ -1,28 +1,46 @@
-%BERN_test dieu kien goc chup thay doi
-%nhin sang trai, hinh 3+4 ( 43.33%); nhin sang phai, hinh 5+6 ( 41.67%); nhin len tren, hinh
-%7+8 ( 40%)  nhin xuong (46.67%)
+% Author: Tinh Bui and Nhan Truong
+% Description:
+%          Calculate the accuracy of the recognition in the varying pose of head
+% Input:
+%       1) database: the data of the faces was taken in ideal condition (1st image)
+%       2) test1, test2: the data of the face in the same pose condition
+% Output:
+%       1) percentage: the accuracy of the recognition
+% Note:
+%       1) This code only use for the BERN database
+%       2) When process 9th and 10th images (look downward), we need replace the line:
+%          testname=test2(ii-length(test1)).name((1:end-5));
+%          by this line:
+%          testname=test2(ii-length(test1)).name((1:end-6));
+% Current result:
+%       1) 3rd and 4th images (look to the left):  43.33%
+%       2) 5th and 6th images (look to the right): 41.67%
+%       3) 7th and 8th images (look upward):       40.00%
+%       4) 9th and 10th images (look downward):    46.67%
+% Reference:
+%       1) The code from MEng Dang Nguyen Chau
 clc
 clear
 right=0;
 tic;
-database=dir('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/*1.mat');
-test1=dir('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/*5.mat');
-test2=dir('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/*6.mat');
+database=dir('train/BN/*1.mat');
+test1=dir('train/BN/*7.mat');
+test2=dir('train/BN/*8.mat');
 Hausdorff_distance=zeros(length(test1)+length(test2),length(database));
 for ii=1:(length(test1)+length(test2))
     if(ii<=length(test1))
-        testfile=fullfile('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/',test1(ii).name);
+        testfile=fullfile('train/BN/',test1(ii).name);
         testtrain=load(testfile);
         for jj=1:length(database)
-            datafile=fullfile('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/',database(jj).name);
+            datafile=fullfile('train/BN/',database(jj).name);
             datatrain=load(datafile);
             Hausdorff_distance(ii,jj)=MHD_ft_angle(datatrain,testtrain,20,4);
         end
     else
-        testfile=fullfile('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/',test2(ii-length(test1)).name);
+        testfile=fullfile('train/BN/',test2(ii-length(test1)).name);
         testtrain=load(testfile);
         for jj=1:length(database)
-            datafile=fullfile('X:/Do_an/code/id3_vectohoa_cacdactrungsovoinhau/train/BN1/',database(jj).name);
+            datafile=fullfile('train/BN/',database(jj).name);
             datatrain=load(datafile);
             Hausdorff_distance(ii,jj)=MHD_ft_angle(datatrain,testtrain,20,4);
         end
