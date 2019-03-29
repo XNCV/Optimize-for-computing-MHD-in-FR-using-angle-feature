@@ -26,6 +26,7 @@ function A = z_order_ssfpM(B)
 C=zeros(3,65536);
 for i=2:r2
     if ((B(i,3)>=0)&&(B(i,1)~=-1))
+        % Need check again file ffspm
         row = B(i,2)-1; column = B(i,1)-1; coor = 0;
         for j=0:7   
             coor=bitor(coor,bitshift(bitand(column,1),(2*j)));
